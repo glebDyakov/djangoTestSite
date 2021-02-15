@@ -1,0 +1,43 @@
+<!--<div class="container">-->
+        <h1>{{title}}</h1>
+        {{arg1}}
+        {{arg2}}
+<!--        <h1>{{test}}</h1>-->
+        <div class="row">
+            <div class=""col-md-12>
+            {% for item in news %}
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                      {{item.my_func}
+                        категория <a href="{{item.get_absolute_url}}
+<!--                        {% url 'category' item.category.pk %}"-->
+                    ></a> {{item.category}}
+                    </div>
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <div class="media">
+                          {% if item.photo %}
+                            <img class="mr-3" src="item.photo.url">
+                          {% else %}
+                            <img src="item.photo.url">
+                          {% endif %}
+                          <div class="media-body">
+                              <h5 class="card-title {% cycle 'text-danger' 'text-success' %} ">{{item.title}}</h5>
+                              {% autoescape off %}
+
+                              {% autoescape off %}
+                            <p class="card-text">{{item.content}}</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                          </div>
+                      </div>
+
+                  </div>
+                    <div>
+                        {{item.created_at|date:'Y-m-d H:i:s'}}
+                    </div>
+                </div>
+                    <span class="badge badge-primary badge-pill">{{item.cnt}}</span>
+            {% endfor %}
+            </div>
+        </div>
+<!--    </div>-->
